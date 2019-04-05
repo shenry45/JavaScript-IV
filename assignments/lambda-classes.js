@@ -31,6 +31,12 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  gradeAlter(student) {
+    const randomNum = Math.floor(Math.random()*2);
+    const gradeNum = Math.floor(Math.random()*10);
+
+    randomNum === 0 ? student.grade -= gradeNum : student.grade += gradeNum;
+  }
 }
 
 // Studets Object -------------------------------------------
@@ -43,6 +49,9 @@ class Student extends Person {
     this.previousBackground = attr.previosBackground;
     this.className = attr.className;
     this.favSubjects = attr.favSubjects;
+
+    //Stretch
+    this.grade = Math.ceil(Math.random()*100);
     
   }
 
@@ -54,6 +63,11 @@ class Student extends Person {
   }
   sprintChallenge(subj) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+  graduate() {
+    if (this.grade > 70) {
+      console.log(`Congratulations ${this.name}! You are now a graduate from the ${this.className} class for Lambda School!`)
+    }
   }
 }
 
